@@ -12,7 +12,8 @@ app.secret_key = '1c8073775dbc85a92ce20ebd44fd6a4fd832078f59ef16ec'  # Replace w
 ps = PorterStemmer()
 tfidf = pickle.load(open('vectorizer.pkl', 'rb'))
 model = pickle.load(open('model.pkl', 'rb'))
-
+# Set the NLTK_DATA environment variable
+os.environ['NLTK_DATA'] = './nltk_data'  # Assuming nltk_data is in your project root
 nltk.download('punkt')
 
 def transform_text(text):
